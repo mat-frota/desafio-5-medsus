@@ -3,8 +3,8 @@ import React from 'react';
 export const MedSusLogoIcon: React.FC<{ className?: string, textColor?: string }> = ({ className, textColor = "text-black" }) => (
   <div className={`flex items-center ${className}`}>
     <img 
-      src="/images/medsus-logo.gif" 
-      alt="MedSUS Logo" 
+      src="/images/logo.png" 
+      alt="xx" 
       className="h-8 w-auto mr-2" 
     />
     <span className={`font-bold text-xl md:text-2xl ${textColor}`}>MedSUS</span>

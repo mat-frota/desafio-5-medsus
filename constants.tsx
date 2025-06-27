@@ -4,7 +4,7 @@ import React from 'react';
 export const MedSusLogoIcon: React.FC<{ className?: string }> = ({ className }) => (
   <div className={`flex items-center ${className?.includes('[&>span]:') ? '' : className}`}>
     <img 
-      src="/images/medsus-logo.gif" 
+      src="/images/logo.png" 
       alt="MedSUS Logo" 
       className="h-8 w-auto mr-2" 
     />

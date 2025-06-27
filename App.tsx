@@ -20,7 +20,7 @@ export enum Page {
 }
 
 const App: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<Page>(Page.AGENDAR_CONSULTA);
+  const [currentPage, setCurrentPage] = useState<Page>(Page.LANDING);
 
   const navigateTo = (page: Page) => {
     setCurrentPage(page);
