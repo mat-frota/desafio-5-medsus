@@ -17,19 +17,19 @@ const InformacoesAdicionaisPage: React.FC<InformacoesAdicionaisPageProps> = () =
             Página de <span className="text-sky-600">Informações Adicionais</span>
           </h1>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Este é um conteúdo placeholder para a nova página de informações adicionais.
+            Esta página reúne conteúdos complementares que ajudam a esclarecer o uso e os recursos do MedSUS.
           </p>
         </section>
 
         <section className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg">
           <h2 className="text-2xl font-semibold text-gray-700 mb-4">Detalhes</h2>
           <p className="text-gray-600 mb-4">
-            Aqui você pode adicionar qualquer conteúdo relevante para esta nova seção do seu aplicativo MedSUS.
-            Pode ser sobre termos de serviço, políticas de privacidade, detalhes sobre uma funcionalidade específica,
-            ou qualquer outra informação que você deseje fornecer aos seus usuários.
+            Aqui você encontra conteúdos essenciais para garantir uma experiência transparente, segura e completa ao utilizar nosso aplicativo.
+            Nesta área, disponibilizamos informações como termos de uso, políticas de privacidade, e detalhes sobre funcionalidades específicas da plataforma. Nosso objetivo é assegurar que você compreenda plenamente seus direitos, deveres e os recursos disponíveis.
+            Fique à vontade para explorar e tirar suas dúvidas.
           </p>
           <p className="text-gray-600">
-            Lembre-se de estruturar o conteúdo de forma clara e acessível.
+            Todas as informações foram organizadas com foco em clareza, acessibilidade e responsabilidade com os dados do usuário.
           </p>
         </section>
       </main>
