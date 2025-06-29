@@ -10,9 +10,9 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl"> {/* Changed max-w-6xl to max-w-7xl for consistency */}
         <div className="flex items-center justify-between h-16 bg-[#CFEDFB] rounded-xl shadow-lg px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex-shrink-0">
-            <a href="/" aria-label="Página Inicial MedSUS">
+            <button onClick={() => navigate("/")} aria-label="Página Inicial MedSUS">
               <MedSusLogoIcon />
-            </a>
+            </button>
           </div>
           
           <nav className="hidden md:flex flex-1 justify-center items-center space-x-2 lg:space-x-4">

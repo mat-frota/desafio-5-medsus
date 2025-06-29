@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = () => {
         <div className="flex items-center justify-between h-16 bg-gradient-to-r from-sky-100 to-blue-200 rounded-xl shadow-lg px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex-shrink-0">
             <a 
-              onClick={() => navigate(-1)}
+              onClick={() => navigate("/")}
               aria-label="Página Inicial MedSUS"
             >
               <MedSusLogoIcon />
