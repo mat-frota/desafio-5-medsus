@@ -1,69 +1,51 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## MedSUS - Front-end: Sua Saúde na Palma da Mão 💚
+Transformando o acesso aos cuidados de saúde através da tecnologia, o MedSUS conecta pacientes e profissionais de forma simples e eficiente, tornando o agendamento de consultas mais ágil e acessível.
 
-Currently, two official plugins are available:
+## ✨ Funcionalidades
+Agendamento de Consultas Online: Agende consultas de forma rápida, segura e conveniente.
+Gestão de Agendamentos: Acompanhe seus agendamentos passados e futuros.
+Perfis de Usuário e Médico: Gerencie suas informações pessoais e preferências.
+Chat Interativo: Fale com a equipe de atendimento para agilizar agendamentos e tirar dúvidas.
+Histórico de Consultas: Visualize e gerencie seu histórico de atendimentos.
+Busca por Especialidades e Profissionais: Encontre o especialista ideal para sua necessidade.
+Segurança dos Dados: Seus dados são protegidos conforme os mais altos padrões de segurança e a LGPD.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🖥️ Tecnologias Utilizadas
+HTML5: Estrutura base das páginas.
+CSS3: Estilização e design responsivo.
+JavaScript (ES6+): Lógica interativa da aplicação.
+React:: Framework/biblioteca para construir a interface de usuário.
 
-## Expanding the ESLint configuration
+## 🚀 Como Rodar o Projeto
+Pré-requisitos
+Certifique-se de ter as seguintes ferramentas instaladas:
+Node.js
+Git
+Instalação e Execução
+Clone este repositório:
+Bash
+git clone https://github.com/mat-frota/desafio-5-medsus.git
+cd desafio-5-medsus
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Instale as dependências do projeto:
+Bash
+npm install
+# ou
+yarn install
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Configuração do Ambiente:
+Crie um arquivo .env na raiz do projeto e configure as variáveis de ambiente necessárias. Este arquivo conterá informações sensíveis, como a URL da API do backend.
+Exemplo de .env:
+VITE_URL_API=http://localhost:3000
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Inicie o servidor de desenvolvimento:
+Bash
+npm run dev
+# ou
+yarn run dev
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Isso geralmente abrirá o projeto localmente no seu navegador, no endereço configurado pelo seu ambiente de desenvolvimento (comumente http://localhost:5173 ou similar).
