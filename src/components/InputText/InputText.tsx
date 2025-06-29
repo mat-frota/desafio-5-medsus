@@ -5,6 +5,7 @@ function InputText({
   value,
   onChange,
   placeholder,
+  ...other
 }: any) {
   return (
     <div className="form-group" style={{ marginBottom: "10px" }}>
@@ -27,6 +28,7 @@ function InputText({
             border: "2px solid #ccc",
             color: "#333",
           }}
+          {...other}
         />
       </div>
     </div>

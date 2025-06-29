@@ -4,6 +4,7 @@ import "./LoginForm.css";
 import InputText from "../InputText/InputText";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router";
+import { formatCPF } from "../../utils/utils";
 
 export const LoginForm = () => {
 
@@ -79,7 +80,8 @@ export const LoginForm = () => {
           label="CPF"
           id="cpf"
           type="text"
-          value={cpf}
+          value={formatCPF(cpf)}
+          maxLength={14}
           onChange={(e: any) => setCpf(e.target.value)}
           placeholder="Entre com seu CPF"
         />

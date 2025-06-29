@@ -4,6 +4,7 @@ import InputText from "../../components/InputText/InputText";
 import "./RegisterForm.css";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router";
+import { formatCPF, formatTelefone } from "../../utils/utils";
 
 export const RegisterForm = () => {
 
@@ -124,7 +125,8 @@ export const RegisterForm = () => {
           label="CPF"
           id="cpf"
           type="text"
-          value={cpf}
+          value={formatCPF(cpf)}
+          maxLength={14}
           onChange={(e: any) => setCpf(e.target.value)}
           placeholder="000.000.000-00"
         />
@@ -132,7 +134,8 @@ export const RegisterForm = () => {
           label="Telefone"
           id="phone"
           type="text"
-          value={phone}
+          maxLength={15}
+          value={formatTelefone(phone)}
           onChange={(e: any) => setPhone(e.target.value)}
           placeholder="(99) 99999-9999"
         />
