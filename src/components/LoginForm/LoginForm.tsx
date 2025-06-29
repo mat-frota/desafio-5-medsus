@@ -8,7 +8,7 @@ import { formatCPF } from "../../utils/utils";
 
 export const LoginForm = () => {
 
-  const URL = "http://localhost:3000"
+  const URL = import.meta.env.VITE_URL_API
 
   const navigate = useNavigate();
 
@@ -18,12 +18,12 @@ export const LoginForm = () => {
 
   const mutation = useMutation({
     mutationFn: async () => {
-      const res = await fetch(`${URL}/api/router/login`, {
+      const res = await fetch(`${URL}/api/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ cpf, password }),
+        body: JSON.stringify({ cpf: cpf.replace(/\D/g, ''), password }),
       });
       if (!res.ok) {
         throw new Error("Erro ao logar.");

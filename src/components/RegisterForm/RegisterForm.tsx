@@ -8,7 +8,7 @@ import { formatCPF, formatTelefone } from "../../utils/utils";
 
 export const RegisterForm = () => {
 
-  const URL = "http://localhost:3000"
+  const URL = import.meta.env.VITE_URL_API
 
   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ export const RegisterForm = () => {
 
   const mutation = useMutation({
     mutationFn: async () => {
-      const res = await fetch(`${URL}/api/router/cadastro`, {
+      const res = await fetch(`${URL}/api/users/cadastro`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export const RegisterForm = () => {
           name,
           email,
           password,
-          cpf,
+          cpf: cpf.replace(/\D/g, ''),
           dateNascimento,
           phone,
           cartaoSus,
