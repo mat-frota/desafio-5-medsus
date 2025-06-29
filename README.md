@@ -24,15 +24,17 @@ Node.js
 Git
 Instalação e Execução
 Clone este repositório:
-Bash
+```bash
 git clone https://github.com/mat-frota/desafio-5-medsus.git
 cd desafio-5-medsus
+```
 
 Instale as dependências do projeto:
-Bash
+```bash
 npm install
 # ou
 yarn install
+```
 
 
 Configuração do Ambiente:
@@ -42,10 +44,12 @@ VITE_URL_API=http://localhost:3000
 
 
 Inicie o servidor de desenvolvimento:
-Bash
+```bash
 npm run dev
 # ou
 yarn run dev
+```
+
 
 
 Isso geralmente abrirá o projeto localmente no seu navegador, no endereço configurado pelo seu ambiente de desenvolvimento (comumente http://localhost:5173 ou similar).
