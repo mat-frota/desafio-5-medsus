@@ -9,6 +9,8 @@ export interface Consulta {
   local: string;
   status: ConsultaStatus;
   observacoes?: string;
+  date_scheduling?: string;
+  type?: string;
 }
 
 export interface Stats {

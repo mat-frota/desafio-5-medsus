@@ -1,11 +1,13 @@
 import React from "react";
 import "./Filters.css";
-import type { ConsultaStatus } from "../../types/types";
+import type { Consulta, ConsultaStatus } from "../../types/types";
 import { Button } from "../Button/Button";
 import { Dropdown } from "../Dropdown/Dropdown";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 interface FiltersProps {
+  connectedApi: boolean;
+  consultas: Consulta[];
   profissional: string;
   onProfissionalChange: (profissional: string) => void;
   status: ConsultaStatus | "todos";
@@ -16,6 +18,8 @@ interface FiltersProps {
 }
 
 export const Filters: React.FC<FiltersProps> = ({
+  connectedApi,
+  consultas,
   profissional,
   onProfissionalChange,
   status,
@@ -37,14 +41,13 @@ export const Filters: React.FC<FiltersProps> = ({
     { value: "março/2023", label: "Março/2023" },
     { value: "agosto/2025", label: "Agosto/2025" },
   ];
+
   const profissionalOptions = [
     { value: "", label: "Selecionar um profissional" },
-    { value: "Dr. João Silva", label: "Dr. João Silva" },
-    { value: "Dr. Carlos Silva", label: "Dr. Carlos Silva" },
-    { value: "Dr. Ana Souza", label: "Dr. Ana Souza" },
-    { value: "Dra. Alice Silva", label: "Dra. Alice Silva" },
-    { value: "Dr. Lucas Pereira", label: "Dr. Lucas Pereira" },
-    { value: "Dr. Maria Oliveira", label: "Dr. Maria Oliveira" },
+    ...consultas.map((consulta) => ({
+      value: consulta.medico,
+      label: consulta.medico,
+    })),
   ];
 
   return (
@@ -69,6 +72,7 @@ export const Filters: React.FC<FiltersProps> = ({
           <div className="filter-group">
             <label htmlFor="status-filter">Status</label>
             <Dropdown
+              disabled={connectedApi}
               id="status-filter"
               options={statusOptions}
               value={status}
@@ -80,6 +84,7 @@ export const Filters: React.FC<FiltersProps> = ({
           <div className="filter-group">
             <label htmlFor="mes-ano-filter">Mês/Ano</label>
             <Dropdown
+              disabled={connectedApi}
               id="mes-ano-filter"
               options={mesAnoOptions}
               value={mesAno}

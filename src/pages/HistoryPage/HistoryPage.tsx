@@ -6,8 +6,10 @@ import { StatsCard } from "../../components/StatsCard/StatsCard";
 import { ConsultaCard } from "../../components/ConsultaCard/ConsultaCard";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import { useQuery } from "@tanstack/react-query";
 
 export const HistoryPage: React.FC = () => {
+  const [connectedApi, setConnectedApi] = useState<boolean>(false);
   const [consultas, setConsultas] = useState<Consulta[]>([]);
   const [filteredConsultas, setFilteredConsultas] = useState<Consulta[]>([]);
   const [filterProfissional, setFilterProfissional] = useState<string>("");
@@ -15,6 +17,31 @@ export const HistoryPage: React.FC = () => {
     "todos"
   );
   const [filterMesAno, setFilterMesAno] = useState<string>("todos");
+
+  const URL = import.meta.env.VITE_URL_API;
+    const fetchHistory = async () => {
+    const response = await fetch(`${URL}/api/scheduling/todos`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      setConnectedApi(false);
+      throw new Error("Erro ao buscar historico de consultas");
+    }
+    const data = await response.json();
+    setConsultas(data.scheduling);
+    setConnectedApi(true);
+    return data;
+  };
+
+  const { data: history = [] } = useQuery<any[]>({
+    queryKey: ["history"],
+    queryFn: fetchHistory,
+    initialData: [],
+  });
+  console.log("Histórico de Consultas:", history);
 
   useEffect(() => {
     const mockConsultas: Consulta[] = [
@@ -122,6 +149,8 @@ export const HistoryPage: React.FC = () => {
           </div>
 
           <Filters
+            connectedApi={connectedApi}
+            consultas={consultas}
             profissional={filterProfissional}
             onProfissionalChange={setFilterProfissional}
             status={filterStatus}

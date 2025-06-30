@@ -3,6 +3,7 @@ import { LocationIcon, UserIcon } from '../../assets/constants';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import { useNavigate } from 'react-router';
+import { useMutation } from '@tanstack/react-query';
 
 interface ConfirmedAppointmentDetails {
   specialty: string;
@@ -49,6 +50,37 @@ const AgendarConsultaPage: React.FC<AgendarConsultaPageProps> = () => {
   const [appointmentConfirmed, setAppointmentConfirmed] = useState<boolean>(false);
   const [confirmedDetails, setConfirmedDetails] = useState<ConfirmedAppointmentDetails | null>(null);
 
+  const URL = import.meta.env.VITE_URL_API;
+
+   const mutation = useMutation({
+    mutationFn: async () => {
+      const res = await fetch(`${URL}/api/scheduling/cadastro/1`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          date_scheduling: `2025-07-30 ${selectedTime}:00`,
+          type: selectedSpecialty,
+          local: selectedUnit,
+          medico: selectedDoctor,
+          time: selectedTime,
+          observations: observations,
+        }),
+      });
+      if (!res.ok) {
+        throw new Error("Erro ao cadastrar.");
+      }
+      return res.json();
+    },
+    onSuccess: () => {
+      console.log("Cadastro com sucesso!");
+    },
+    onError: (error) => {
+      console.log("Erro ao cadastrar:", error);
+    },
+  });
+
   const clientName = "Nome do Usuário"; // Hardcoded client name
 
   const handleConfirmAppointment = () => {
@@ -66,6 +98,7 @@ const AgendarConsultaPage: React.FC<AgendarConsultaPageProps> = () => {
     };
     setConfirmedDetails(details);
     setAppointmentConfirmed(true);
+      mutation.mutate();
   };
 
   const handleCancelConfirmedAppointment = () => {

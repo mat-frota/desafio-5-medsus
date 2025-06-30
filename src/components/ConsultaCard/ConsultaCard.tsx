@@ -3,12 +3,31 @@ import "./ConsultaCard.css";
 import type { Consulta } from "../../types/types";
 import { Button } from "../Button/Button";
 import { Icon } from "@iconify/react";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface ConsultaCardProps {
   consulta: Consulta;
 }
 
 export const ConsultaCard: React.FC<ConsultaCardProps> = ({ consulta }) => {
+    const queryClient = useQueryClient();
+
+  const URL = import.meta.env.VITE_URL_API;
+
+  const deleteConsulta = async (id: any) => {
+    const response = await fetch(`${URL}/api/scheduling/deletar/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      throw new Error("Erro ao deletar Consulta");
+    }
+    await queryClient.invalidateQueries({ queryKey: ["history"] });
+    return response.json();
+ };
+
   const getStatusClass = (status: Consulta["status"]) => {
     switch (status) {
       case "realizado":
@@ -18,19 +37,20 @@ export const ConsultaCard: React.FC<ConsultaCardProps> = ({ consulta }) => {
       case "cancelado":
         return "status-cancelado";
       default:
-        return "";
+        return "status-agendado";
     }
   };
-
+console.log("ConsultaCard:", consulta.status);
   return (
     <div className={`consulta-card ${getStatusClass(consulta.status)}`}>
       <div className="card-header">
         <div style={{ display: "flex", alignItems: "center", gap: "24px" }}>
-          <h1>{consulta.especialidade}</h1>
+          <h1>{consulta.especialidade || consulta.type}</h1>
           <span className={`status-badge ${getStatusClass(consulta.status)}`}>
             {consulta.status === "realizado" && "realizado"}
             {consulta.status === "agendado" && "agendado"}
             {consulta.status === "cancelado" && "cancelado"}
+            {!consulta.status && "agendado"}
           </span>
         </div>
         <div className="card-actions">
@@ -44,12 +64,12 @@ export const ConsultaCard: React.FC<ConsultaCardProps> = ({ consulta }) => {
               Ver Relatório
             </Button>
           )}
-          {consulta.status === "agendado" && (
+          {(consulta.status === "agendado" || !consulta.status) && (
             <>
               <Button
                 variant="outline-blue"
                 onClick={() =>
-                  alert("Ver Detalhes para " + consulta.especialidade)
+                  alert("Ver Detalhes para " + (consulta.especialidade || consulta.type))
                 }
               >
                 Ver Detalhes
@@ -57,7 +77,7 @@ export const ConsultaCard: React.FC<ConsultaCardProps> = ({ consulta }) => {
               <Button
                 variant="red"
                 onClick={() =>
-                  alert("Cancelar Consulta " + consulta.especialidade)
+                  deleteConsulta(consulta.id)
                 }
               >
                 Cancelar Consulta
@@ -82,13 +102,13 @@ export const ConsultaCard: React.FC<ConsultaCardProps> = ({ consulta }) => {
           </p>
           <p>
             <Icon icon="iconoir:clock" width="24" height="24" style={{marginRight: "4px"}} />
-            {consulta.horario}
+            {consulta.horario || (consulta.date_scheduling ? new Date(consulta.date_scheduling).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "")}
           </p>
         </div>
         <div style={{fontWeight: "bold"}}>
           <p>
             <Icon icon="mynaui:calendar" width="24" height="24" style={{marginRight: "4px"}}></Icon>
-            {consulta.data}
+            {consulta.data || (consulta.date_scheduling ? new Date(consulta.date_scheduling).toLocaleDateString() : "")}
           </p>
           <p>
             <Icon icon="famicons:location-outline" width="24" height="24" style={{marginRight: "4px"}} />
