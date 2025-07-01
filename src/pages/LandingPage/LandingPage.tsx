@@ -8,7 +8,7 @@ import icon1 from '../../assets/Images/feature-icon-1.png'
 import icon2 from '../../assets/Images/feature-icon-2.png'
 import icon3 from '../../assets/Images/feature-icon-3.png'
 import heroImage from "../../assets/Images/hero-main.png"
-import ctaBanner from "../../assets/images/cta-banner.png"
+import ctaBanner from "../../assets/Images/cta-banner.png"
 import Header from '../../components/Header2/Header2';
 import { useNavigate } from 'react-router';
 import Footer from '../../components/Footer/Footer';
