@@ -1,0 +1,132 @@
+.register-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+}
+
+.register-icon-container {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.register-form-wrapper h2 {
+  font-size: 28px;
+  margin-top: 0;
+  color: #333;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.register-form-wrapper p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.register-form {
+  width: 100%;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon .input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  fill: #999;
+}
+
+.input-with-icon input {
+  width: calc(100% - 30px);
+  padding: 12px 12px 12px 45px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.input-with-icon input::placeholder {
+  color: #aaa;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  color: #555;
+}
+
+.remember-me input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(1.2);
+}
+
+.forgot-password {
+  color: #007bff;
+  text-decoration: none;
+  text-decoration: underline;
+}
+
+.register-button {
+  width: 100%;
+  background-color: #007aff;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #0057b3;
+}
+
+.signup-link {
+  margin-top: 25px;
+  font-size: 15px;
+  color: #666;
+}
+
+.signup-link a {
+  color: #000000;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 700px) {
+  .register-form-wrapper {
+    width: 90%;
+  }
+
+  .register-form-wrapper h2 {
+    font-size: 24px;
+  }
+
+  .register-form-wrapper p {
+    font-size: 14px;
+  }
+
+  .input-with-icon input {
+    padding: 12px 12px 12px 40px;
+  }
+}
