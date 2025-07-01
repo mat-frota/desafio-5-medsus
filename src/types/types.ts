@@ -20,7 +20,7 @@ export interface Stats {
   total: number;
 }
 
-export enum ActiveTab {
+export const enum ActiveTab {
   PERSONAL = 'personal',
   MEDICAL = 'medical',
   PREFERENCES = 'preferences',
@@ -56,7 +56,7 @@ export interface PreferencesData {
   preferenceObservations: string;
 }
 
-export enum AppointmentStatus {
+export const enum AppointmentStatus {
   REALIZADA = 'Realizada',
   AGENDADA = 'Agendada',
   CANCELADA = 'Cancelada',
