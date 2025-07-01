@@ -20,11 +20,14 @@ export interface Stats {
   total: number;
 }
 
-export const enum ActiveTab {
-  PERSONAL = 'personal',
-  MEDICAL = 'medical',
-  PREFERENCES = 'preferences',
-}
+// ALTERADO: de 'enum' para um objeto com 'as const'
+export const ActiveTab = {
+  PERSONAL: 'personal',
+  MEDICAL: 'medical',
+  PREFERENCES: 'preferences',
+} as const;
+export type ActiveTab = typeof ActiveTab[keyof typeof ActiveTab];
+
 
 export interface PersonalData {
   fullName: string;
@@ -56,11 +59,14 @@ export interface PreferencesData {
   preferenceObservations: string;
 }
 
-export const enum AppointmentStatus {
-  REALIZADA = 'Realizada',
-  AGENDADA = 'Agendada',
-  CANCELADA = 'Cancelada',
-}
+// ALTERADO: de 'enum' para um objeto com 'as const'
+export const AppointmentStatus = {
+  REALIZADA: 'Realizada',
+  AGENDADA: 'Agendada',
+  CANCELADA: 'Cancelada',
+} as const;
+export type AppointmentStatus = typeof AppointmentStatus[keyof typeof AppointmentStatus];
+
 
 export interface Appointment {
   id: string;
