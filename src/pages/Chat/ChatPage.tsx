@@ -105,7 +105,7 @@ const ChatPage: React.FC<ChatPageProps> = () => {
             onChange={(e) => setInitialInputValue(e.target.value)}
             placeholder="Inicie o atendimento"
             aria-label="Inicie o atendimento"
-            className="flex-grow p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="flex-grow p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white text-black"
             onKeyPress={(e) => e.key === 'Enter' && handleStartChat()}
           />
           <button
@@ -126,7 +126,7 @@ const ChatPage: React.FC<ChatPageProps> = () => {
         {/* Chat Header */}
         <div className="bg-sky-100 p-3 sm:p-4 border-b border-gray-200 flex items-center justify-between">
           <div className="flex items-center">
-            <MedSusLogoIcon textColor="text-black" className="h-7"/> {/* Smaller logo with black text */}
+            <MedSusLogoIcon textColor="text-white" className="h-7"/> {/* Smaller logo with black text */}
             <span className="ml-2 text-sm font-semibold text-green-600 bg-green-100 px-2 py-0.5 rounded-full">Online</span>
           </div>
           <button aria-label="Informações do chat">
@@ -177,7 +177,7 @@ const ChatPage: React.FC<ChatPageProps> = () => {
               onChange={(e) => setInputValue(e.target.value)}
               placeholder="Digite sua mensagem..."
               aria-label="Digite sua mensagem"
-              className="flex-grow p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
+              className="flex-grow p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-white text-black"
               onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
             />
             <button
