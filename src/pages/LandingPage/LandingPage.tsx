@@ -109,7 +109,7 @@ const LandingPage: React.FC<LandingPageProps> = ({
                 </p>
                 <div className="mt-8 flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                   <button
-                    onClick={() => navigate("agendar-consulta")} 
+                    onClick={() => navigate("/login")} 
                     className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-colors duration-150 ease-in-out text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                     aria-label="Agendar uma consulta"
                   >
