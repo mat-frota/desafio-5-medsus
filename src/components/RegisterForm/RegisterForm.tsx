@@ -146,6 +146,7 @@ export const RegisterForm = () => {
           value={cartaoSus}
           onChange={(e: any) => setCartaoSus(e.target.value)}
           placeholder="123456789012345"
+          maxLength={15}
         />
         <InputText
           label="Cidade"
